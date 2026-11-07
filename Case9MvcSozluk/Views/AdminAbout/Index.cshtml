@@ -1,0 +1,14 @@
+﻿@model Case9MvcSozluk.Models.AboutFormViewModel
+@{ViewBag.Title = "Hakkımızda Yönetimi"; Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+<div class="sz-head"><div><h1>Hakkımızda</h1><p>SözlükX'i tanıtan içerikleri ve görselleri güncelleyin.</p></div><a href="@Url.Action("About","Home")" class="sz-btn">Ön yüzde gör</a></div>
+@if (TempData["Success"] != null)
+{<div class="sz-alert">@TempData["Success"]</div>}
+<section class="sz-panel sz-form-card">
+    @using (Html.BeginForm())
+    {@Html.AntiForgeryToken() @Html.ValidationSummary(true, "", new { @class = "sz-validation" })
+    <div class="sz-form-group">@Html.LabelFor(x => x.Details1) @Html.TextAreaFor(x => x.Details1, new { @class = "sz-input", rows = 7, maxlength = 5000 }) @Html.ValidationMessageFor(x => x.Details1)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.Details2) @Html.TextAreaFor(x => x.Details2, new { @class = "sz-input", rows = 5, maxlength = 5000 }) @Html.ValidationMessageFor(x => x.Details2)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.Image1) @Html.TextBoxFor(x => x.Image1, new { @class = "sz-input", placeholder = "https://... veya /Content/..." }) @Html.ValidationMessageFor(x => x.Image1)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.Image2) @Html.TextBoxFor(x => x.Image2, new { @class = "sz-input", placeholder = "https://... veya /Content/..." }) @Html.ValidationMessageFor(x => x.Image2)</div>
+    <div class="sz-form-actions"><button class="sz-btn sz-btn-primary" type="submit">Değişiklikleri kaydet</button></div>}
+</section>

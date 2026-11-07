@@ -1,0 +1,84 @@
+﻿
+@model Case9MvcSozluk.Models.ContactFormViewModel
+
+@{
+    ViewBag.Title = "İletişim";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<section class="sx-page-hero">
+    <span class="sx-page-eyebrow">
+        <i class="bi bi-chat-left-text" aria-hidden="true"></i>
+        SÖZLÜKX / İLETİŞİM
+    </span>
+    <h1>Bir mesaj bırak<span>.</span></h1>
+    <p>SözlükX ile ilgili görüşlerini buradan iletebilirsin.</p>
+</section>
+
+@if (TempData["Success"] != null)
+{
+    <div class="sx-success" role="status">
+        @TempData["Success"]
+    </div>
+}
+
+<div class="sx-contact-layout">
+    <section class="sx-feature-card sx-contact-form" aria-label="İletişim formu">
+        <div class="sx-card-heading">
+            <span class="sx-feature-icon">
+                <i class="bi bi-envelope-paper" aria-hidden="true"></i>
+            </span>
+            <div>
+                <h2>İletişim formu</h2>
+                <p>Adını, e-posta adresini ve mesajını yazman yeterli.</p>
+            </div>
+        </div>
+
+        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "sx-error" })
+
+            <div class="sx-form-grid">
+                <div>
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "sx-control", maxlength = "80", autocomplete = "name" })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "sx-error" })
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { @class = "sx-control", type = "email", maxlength = "100", autocomplete = "email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "sx-error" })
+                </div>
+            </div>
+
+            @Html.LabelFor(m => m.Subject)
+            @Html.TextBoxFor(m => m.Subject, new { @class = "sx-control", maxlength = "150" })
+            @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "sx-error" })
+
+            @Html.LabelFor(m => m.Message)
+            @Html.TextAreaFor(m => m.Message, new { @class = "sx-control", rows = "6", maxlength = "3000", placeholder = "Mesajını buraya yaz..." })
+            @Html.ValidationMessageFor(m => m.Message, "", new { @class = "sx-error" })
+
+            <div class="sx-actions">
+                <button class="sx-primary" type="submit">
+                    <i class="bi bi-send" aria-hidden="true"></i>
+                    Mesajı gönder
+                </button>
+            </div>
+        }
+    </section>
+
+    <aside class="sx-contact-aside sx-feature-card">
+        <span class="sx-feature-icon">
+            <i class="bi bi-chat-square-dots" aria-hidden="true"></i>
+        </span>
+        <h2>Fikirlerine açığız</h2>
+        <p>Yeni kategori önerileri, kullanım deneyimi veya karşılaştığın sorunlar hakkında yazabilirsin.</p>
+        <div class="sx-contact-divider"></div>
+        <a href="@Url.Action("Index", "Home")" class="sx-secondary">
+            Sözlüğü keşfet
+            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+        </a>
+    </aside>
+</div>

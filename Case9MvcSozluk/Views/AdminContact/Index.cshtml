@@ -1,0 +1,20 @@
+﻿@model List<EntityLayer.Concrete.Contact>
+@{ViewBag.Title = "İletişim Mesajları"; Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+<div class="sz-head"><div><h1>İletişim mesajları</h1><p>Ziyaretçilerden gelen mesajları ve geri bildirimleri inceleyin.</p></div></div>
+<section class="sz-panel">
+    <div class="sz-panel-head"><h2>Mesajlar</h2><span class="sz-toolbar-note">@Model.Count kayıt</span></div><div class="sz-table-wrap">
+        <table class="sz-table">
+            <thead><tr><th>Gönderen</th><th>Konu / Mesaj</th><th>Tarih</th></tr></thead>
+            <tbody>
+                @foreach (var m in Model)
+                {
+                    <tr><td><strong>@m.UserName</strong><div class="sz-table-desc">@m.UserMail</div></td><td><strong>@m.Subject</strong><div style="white-space:pre-wrap">@m.Message</div></td><td>@m.ContactDate.ToString("dd.MM.yyyy HH:mm")</td></tr>
+}
+                @if (Model.Count == 0)
+                {
+                    <tr><td colspan="3">Henüz mesaj yok.</td></tr>
+}
+            </tbody>
+        </table>
+    </div>
+</section>

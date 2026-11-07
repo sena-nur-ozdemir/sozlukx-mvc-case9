@@ -1,0 +1,26 @@
+﻿@model List<EntityLayer.Concrete.Heading>
+@{ ViewBag.Title = "Başlıklar"; Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+<div class="sz-head"><div><div class="sz-eyebrow">SÖZLÜK YÖNETİMİ</div><h1>Başlıklar</h1><p>Sözlükte oluşturulan başlıkları görüntüleyin ve yönetin.</p></div><a class="sz-btn sz-btn-primary" href="@Url.Action("Create")">+ Yeni başlık</a></div>
+@if (TempData["Success"] != null)
+{<div class="sz-alert">@TempData["Success"]</div>}
+<section class="sz-panel">
+    <div class="sz-panel-head"><h2>Tüm başlıklar</h2><span class="sz-toolbar-note">@Model.Count kayıt</span></div><div class="sz-table-wrap">
+        <table class="sz-table">
+            <thead><tr><th>Başlık</th><th>Kategori</th><th>Yazar</th><th>Durum</th><th>İşlem</th></tr></thead>
+            <tbody>
+                @foreach (var h in Model)
+                {
+                    <tr><td><strong>@h.HeadingName</strong><div class="sz-table-desc">@h.HeadingDate.ToString("dd.MM.yyyy")</div></td><td>@(h.Category==null?"—":h.Category.CategoryName)</td><td>@(h.Writer==null?"—":h.Writer.WriterUserName)</td><td>@if (h.HeadingStatus)
+                    {<span class="sz-pill active">Aktif</span>}
+                    else
+                    {<span class="sz-pill inactive">Pasif</span>}</td><td><a class="sz-btn" href="@Url.Action("Edit",new{id=h.HeadingID})">Düzenle</a> @using (Html.BeginForm("ChangeStatus", "AdminHeading", new { id = h.HeadingID, active = !h.HeadingStatus }, FormMethod.Post, new { style = "display:inline" }))
+                    {@Html.AntiForgeryToken()<button class="sz-btn" type="submit">@(h.HeadingStatus?"Pasife al":"Aktifleştir")</button>}</td></tr>
+}
+                @if (Model.Count == 0)
+                {
+                    <tr><td class="sz-empty" colspan="5">Henüz başlık yok. Önce aktif kategori ve yazar oluştur.</td></tr>
+}
+            </tbody>
+        </table>
+    </div>
+</section>

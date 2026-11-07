@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.About
+@{
+    ViewBag.Title = "Hakkımızda";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+<section class="sx-page-hero">
+    <span class="sx-page-eyebrow"><i class="bi bi-journal-text" aria-hidden="true"></i> SÖZLÜKX / HAKKIMIZDA</span>
+    <h1>Düşünceler bir başlıkla başlar<span>.</span></h1>
+    <p>SözlükX, başlıklar etrafında fikirlerin ve deneyimlerin paylaşıldığı bir sözlük alanı.</p>
+</section>
+@if (Model == null || (string.IsNullOrWhiteSpace(Model.AboutDetails1) && string.IsNullOrWhiteSpace(Model.AboutDetails2)))
+{
+    <section class="sx-feature-card sx-empty-card">
+        <span class="sx-feature-icon"><i class="bi bi-info-circle" aria-hidden="true"></i></span>
+        <h2>Hakkımızda içeriği hazırlanıyor</h2>
+        <p>Bu bölümün açıklaması yönetim panelinden eklenecek.</p>
+        <a class="sx-secondary" href="@Url.Action("Index", "Home")">Sözlüğe dön</a>
+    </section>
+}
+else
+{
+    <div class="sx-story-stack">
+        @if (!string.IsNullOrWhiteSpace(Model.AboutDetails1) || !string.IsNullOrWhiteSpace(Model.AboutImage1))
+        {
+            <section class="sx-feature-card sx-story-card @(string.IsNullOrWhiteSpace(Model.AboutImage1) ? "sx-story-text-only" : "")">
+                <div class="sx-story-copy">
+                    <span class="sx-page-eyebrow">01 / SÖZLÜKX</span>
+                    <h2>SözlükX hakkında</h2>
+                    @if (!string.IsNullOrWhiteSpace(Model.AboutDetails1))
+                    {<p class="sx-prewrap">@Model.AboutDetails1</p>}
+                </div>
+                @if (!string.IsNullOrWhiteSpace(Model.AboutImage1))
+                {<img class="sx-story-image" src="@Model.AboutImage1" alt="SözlükX hakkında görsel" loading="lazy" />}
+            </section>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.AboutDetails2) || !string.IsNullOrWhiteSpace(Model.AboutImage2))
+        {
+            <section class="sx-feature-card sx-story-card @(string.IsNullOrWhiteSpace(Model.AboutImage2) ? "sx-story-text-only" : "")">
+                <div class="sx-story-copy">
+                    <span class="sx-page-eyebrow">02 / DAHA FAZLASI</span>
+                    <h2>Birlikte keşfet</h2>
+                    @if (!string.IsNullOrWhiteSpace(Model.AboutDetails2))
+                    {<p class="sx-prewrap">@Model.AboutDetails2</p>}
+                </div>
+                @if (!string.IsNullOrWhiteSpace(Model.AboutImage2))
+                {<img class="sx-story-image" src="@Model.AboutImage2" alt="SözlükX ikinci görsel" loading="lazy" />}
+            </section>
+        }
+    </div>
+}
+<div class="sx-page-end"><a href="@Url.Action("Index", "Home")"><i class="bi bi-arrow-left" aria-hidden="true"></i> Sözlüğe dön</a></div>

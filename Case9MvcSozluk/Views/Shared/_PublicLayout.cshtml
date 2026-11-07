@@ -1,0 +1,50 @@
+﻿@using System
+@{
+    Layout = null;
+    bool isWriter = Request.IsAuthenticated && User.Identity.Name.StartsWith("writer:", StringComparison.Ordinal);
+    bool isAdmin = Request.IsAuthenticated && !isWriter;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title | SözlükX</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/sozlukx-site.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/sozlukx-extra.css")" rel="stylesheet" />
+</head>
+<body class="sx-public">
+    <header class="sx-public-nav">
+        <div class="sx-public-nav-inner">
+            <a class="sx-wordmark" href="@Url.Action("Index", "Home")" aria-label="SözlükX ana sayfa">Sözlük<span>X</span></a>
+            <nav class="sx-public-nav-menu" aria-label="Sayfa menüsü">
+                <a href="@Url.Action("Index", "Home")"><i class="bi bi-house" aria-hidden="true"></i> Sözlük</a>
+                <a href="@Url.Action("About", "Home")">Hakkımızda</a>
+                <a href="@Url.Action("Contact", "Home")">İletişim</a>
+                <a href="@Url.Action("Index", "Gallery")">Galeri</a>
+            </nav>
+            <div class="sx-public-nav-account">
+                @if (isWriter)
+                {
+                    <a href="@Url.Action("Index", "WriterHeading")">Başlıklarım</a>
+                    <a href="@Url.Action("Inbox", "WriterMessage")">Mesajlarım</a>
+                    <a href="@Url.Action("Index", "WriterProfile")" class="sx-public-account-btn">Profilim</a>
+                }
+                else if (isAdmin)
+                {<a href="@Url.Action("Index", "AdminDashboard")" class="sx-public-account-btn">Yönetim paneli</a>}
+                else
+                {
+                    <a href="@Url.Action("Login", "WriterAccount")">Giriş Yap</a>
+                    <a href="@Url.Action("Register", "WriterAccount")" class="sx-public-account-btn">Kayıt Ol</a>
+                }
+            </div>
+        </div>
+    </header>
+    <main class="sx-public-main">
+        @RenderBody()
+    </main>
+    <footer class="sx-public-footer"><a href="@Url.Action("Index", "Home")">SözlükX</a> <span>·</span> © @DateTime.Now.Year <span>·</span> MVC 5 / EF6</footer>
+</body>
+</html>

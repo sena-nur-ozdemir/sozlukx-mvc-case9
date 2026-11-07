@@ -1,0 +1,28 @@
+﻿@model Case9MvcSozluk.Models.CategoryFormViewModel
+@{
+    ViewBag.Title = "Kategori Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="sz-head"><div><div class="sz-eyebrow">KATEGORİLER / YENİ</div><h1>Yeni kategori</h1><p>Sözlük başlıklarını gruplamak için kategori oluştur.</p></div><a class="sz-btn" href="@Url.Action("Index")"><i class="bi bi-arrow-left"></i> Listeye dön</a></div>
+<section class="sz-panel sz-form-card">
+    @using (Html.BeginForm("Create", "AdminCategory", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="sz-validation">@Html.ValidationSummary(true, "")</div>
+        <div class="sz-form-grid">
+            <div class="sz-form-group">
+                @Html.LabelFor(m => m.CategoryName)
+            @Html.TextBoxFor(m => m.CategoryName, new { @class = "sz-input", maxlength = "50", placeholder = "Ör. Teknoloji", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.CategoryName, "", new { @class = "sz-validation" })
+            <small class="sz-hint">En fazla 50 karakter.</small>
+        </div>
+        <div class="sz-form-group">
+            @Html.LabelFor(m => m.CategoryDescription)
+        @Html.TextAreaFor(m => m.CategoryDescription, new { @class = "sz-input", rows = "5", maxlength = "250", placeholder = "Bu kategoride neler konuşulur?" })
+        @Html.ValidationMessageFor(m => m.CategoryDescription, "", new { @class = "sz-validation" })
+        <small class="sz-hint">İsteğe bağlı, en fazla 250 karakter.</small>
+    </div>
+</div>
+<div class="sz-form-actions"><button class="sz-btn sz-btn-primary" type="submit"><i class="bi bi-check-lg"></i> Kategori ekle</button><a href="@Url.Action("Index")" class="sz-btn">Vazgeç</a></div>
+}
+</section>

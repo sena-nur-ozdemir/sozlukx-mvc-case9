@@ -1,0 +1,53 @@
+# Visual Studio / VS Code local state
+.vs/
+**/.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.vsidx
+*.DotSettings.user
+
+# .NET build output
+[Bb]in/
+[Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+# NuGet restore directory (keep packages.config files)
+packages/
+**/packages/
+
+# Local caches and temporary files
+*.cache
+*.tmp
+*.temp
+*.log
+*.bak
+*.old
+*.pdb
+TestResults/
+
+# Local databases and backup files
+*.mdf
+*.ldf
+*.bak
+*.bacpac
+
+# Local secrets and publish-only credentials
+.env
+.env.*
+!.env.example
+*.publishsettings
+*.pubxml.user
+*.pfx
+*.key
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+Desktop.ini

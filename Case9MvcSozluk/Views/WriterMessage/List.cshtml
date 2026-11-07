@@ -1,0 +1,29 @@
+﻿@model List<EntityLayer.Concrete.Message>
+@using System
+@{var action = (string)ViewContext.RouteData.Values["action"]; ViewBag.Title = action == "Sent" ? "Gönderilenler" : action == "Drafts" ? "Taslaklar" : "Gelen kutusu"; Layout = "~/Views/Shared/_PublicLayout.cshtml";}
+<h1>@ViewBag.Title</h1><div class="sx-actions"><a href="@Url.Action("Compose")" class="sx-primary">Yeni mesaj</a><a href="@Url.Action("Inbox")" class="sx-secondary">Gelen</a><a href="@Url.Action("Sent")" class="sx-secondary">Gönderilen</a><a href="@Url.Action("Drafts")" class="sx-secondary">Taslaklar</a></div>
+@if (TempData["Success"] != null)
+{<div class="sx-success">@TempData["Success"]</div>}
+@if (TempData["Error"] != null)
+{<div class="sx-error">@TempData["Error"]</div>}
+<div class="sx-box sx-responsive">
+    <table class="sx-table">
+        <thead><tr><th>Gönderen / Alıcı</th><th>Konu</th><th>Tarih</th><th>Durum / İşlem</th></tr></thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr><td>@(action=="Inbox"?m.SenderMail:m.ReceiverMail)</td><td><a class="sx-link" href="@Url.Action("Read",new{id=m.MessageID})">@m.Subject</a></td><td>@m.MessageDate.ToString("dd.MM.yyyy HH:mm")</td><td>@if (m.IsDraft)
+                {
+                    using (Html.BeginForm("SendDraft", "WriterMessage", new { id = m.MessageID }, FormMethod.Post, new { @class = "sx-inline" }))
+                    {@Html.AntiForgeryToken()<button type="submit" class="sx-secondary">Taslağı gönder</button>}
+            }
+            else
+            {<span class="sx-chip @(m.IsRead?"ok":"")">@(m.IsRead?"Okundu":"Okunmadı")</span>}</td></tr>
+}
+            @if (Model.Count == 0)
+            {
+                <tr><td colspan="4">Bu klasörde mesaj yok.</td></tr>
+}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,10 @@
+﻿@model Case9MvcSozluk.Models.GalleryFormViewModel
+@{ViewBag.Title = "Görsel Ekle"; Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+<div class="sz-head"><div><h1>Yeni görsel</h1><p>HTTPS görsel URL'si veya /Content/... yoluyla ekle.</p></div><a href="@Url.Action("Index")" class="sz-btn">Listeye dön</a></div>
+<section class="sz-panel sz-form-card">
+    @using (Html.BeginForm())
+    {@Html.AntiForgeryToken() @Html.ValidationSummary(true, "", new { @class = "sz-validation" })
+    <div class="sz-form-group">@Html.LabelFor(x => x.Name) @Html.TextBoxFor(x => x.Name, new { @class = "sz-input", maxlength = 100 }) @Html.ValidationMessageFor(x => x.Name)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.Path) @Html.TextBoxFor(x => x.Path, new { @class = "sz-input", maxlength = 300 }) @Html.ValidationMessageFor(x => x.Path)</div>
+    <div class="sz-form-actions"><button type="submit" class="sz-btn sz-btn-primary">Görseli ekle</button></div>}
+</section>

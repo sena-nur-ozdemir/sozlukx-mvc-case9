@@ -1,0 +1,17 @@
+﻿@model Case9MvcSozluk.Models.WriterRegisterViewModel
+@{ ViewBag.Title = "Yazar Kaydı"; Layout = "~/Views/Shared/_WriterAuthLayout.cshtml"; }
+<div class="sa-eyebrow">SÖZLÜKX TOPLULUĞU</div>
+<h1>Aramıza katıl.</h1><p>Kendi yazar hesabını oluştur.</p>
+@using (Html.BeginForm("Register", "WriterAccount", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "sa-errors" })
+    <div class="sa-two"><div>@Html.LabelFor(m => m.Name)@Html.TextBoxFor(m => m.Name, new { @class = "sa-input", maxlength = "80" })@Html.ValidationMessageFor(m => m.Name, "", new { @class = "sa-errors" })</div><div>@Html.LabelFor(m => m.Surname)@Html.TextBoxFor(m => m.Surname, new { @class = "sa-input", maxlength = "80" })@Html.ValidationMessageFor(m => m.Surname, "", new { @class = "sa-errors" })</div></div>
+    @Html.LabelFor(m => m.UserName)@Html.TextBoxFor(m => m.UserName, new { @class = "sa-input", maxlength = "50", autocomplete = "username" })@Html.ValidationMessageFor(m => m.UserName, "", new { @class = "sa-errors" })
+    @Html.LabelFor(m => m.Email)@Html.TextBoxFor(m => m.Email, new { @class = "sa-input", type = "email", maxlength = "100", autocomplete = "email" })@Html.ValidationMessageFor(m => m.Email, "", new { @class = "sa-errors" })
+    @Html.LabelFor(m => m.Password)@Html.PasswordFor(m => m.Password, new { @class = "sa-input", autocomplete = "new-password" })@Html.ValidationMessageFor(m => m.Password, "", new { @class = "sa-errors" })
+    @Html.LabelFor(m => m.ConfirmPassword)@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "sa-input", autocomplete = "new-password" })@Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "sa-errors" })
+    <small class="sa-tip">Parolan en az 12 karakter olmalıdır.</small>
+    <button class="sa-submit" type="submit">Hesap oluştur <i class="bi bi-arrow-right"></i></button>
+}
+<div class="sa-bottom">Hesabın var mı? <a href="@Url.Action("Login", "WriterAccount")">Giriş Yap</a></div>

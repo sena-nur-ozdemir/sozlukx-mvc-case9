@@ -1,0 +1,57 @@
+﻿@{
+    var controller = (string)ViewContext.RouteData.Values["controller"] ?? "";
+    var dashboard = controller == "AdminDashboard";
+    var category = controller == "AdminCategory";
+    var writer = controller == "AdminWriter";
+    var heading = controller == "AdminHeading";
+    var content = controller == "AdminContent";
+    var about = controller == "AdminAbout";
+    var gallery = controller == "AdminGallery";
+    var contact = controller == "AdminContact";
+    var reports = controller == "AdminReports";
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title | SözlükX Yönetim</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/sozlukx-admin.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/sozlukx-extra.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/sozlukx-reports.css")" rel="stylesheet" />
+</head>
+<body class="sz-admin">
+    <button class="sz-menu-btn" id="szMenuOpen" aria-label="Menüyü aç" aria-controls="szSidebar" aria-expanded="false"><i class="bi bi-list"></i></button>
+    <div class="sz-backdrop" id="szBackdrop"></div>
+    <aside class="sz-sidebar" id="szSidebar">
+        <a class="sz-logo" href="@Url.Action("Index", "AdminDashboard")">Sözlük<span>X</span><small>YÖNETİM PANELİ</small></a>
+        <div class="sz-side-caption">ÇALIŞMA ALANI</div>
+        <nav class="sz-side-nav" aria-label="Yönetim menüsü">
+            <a class="@(dashboard ? "selected" : "")" href="@Url.Action("Index","AdminDashboard")"><i class="bi bi-grid-1x2"></i> Genel Bakış</a>
+            <a class="@(category ? "selected" : "")" href="@Url.Action("Index","AdminCategory")"><i class="bi bi-collection"></i> Kategoriler</a>
+            <a class="@(writer ? "selected" : "")" href="@Url.Action("Index","AdminWriter")"><i class="bi bi-people"></i> Yazarlar</a>
+            <a class="@(heading ? "selected" : "")" href="@Url.Action("Index","AdminHeading")"><i class="bi bi-journal-text"></i> Başlıklar</a>
+            <a class="@(content ? "selected" : "")" href="@Url.Action("Index","AdminContent")"><i class="bi bi-chat-square-text"></i> Entry'ler</a>
+            <a class="@(about ? "selected" : "")" href="@Url.Action("Index","AdminAbout")"><i class="bi bi-info-circle"></i> Hakkımızda</a>
+            <a class="@(gallery ? "selected" : "")" href="@Url.Action("Index","AdminGallery")"><i class="bi bi-images"></i> Galeri</a>
+            <a class="@(contact ? "selected" : "")" href="@Url.Action("Index","AdminContact")"><i class="bi bi-envelope"></i> İletişim</a>
+            <a class="@(reports ? "selected" : "")" href="@Url.Action("Index","AdminReports")"><i class="bi bi-bar-chart"></i> Raporlar</a>
+        </nav>
+        <div class="sz-side-bottom">
+            <a class="sz-public-link" href="@Url.Action("Index","Home")"><i class="bi bi-box-arrow-up-right"></i> SözlükX ön yüzü</a>
+            <div class="sz-profile"><div class="sz-profile-avatar"><i class="bi bi-person"></i></div><div><strong>@User.Identity.Name</strong><small>Yönetici</small></div></div>
+            @using (Html.BeginForm("Logout", "Login", FormMethod.Post))
+            {@Html.AntiForgeryToken()<button type="submit" class="sz-logout"><i class="bi bi-box-arrow-right"></i> Güvenli çıkış</button>}
+        </div>
+    </aside>
+    <div class="sz-content-shell">
+        <header class="sz-topbar"><div class="sz-breadcrumb"><span>SözlükX</span><i class="bi bi-chevron-right"></i><strong>@ViewBag.Title</strong></div><div class="sz-top-actions"><span class="sz-live-dot"></span> Yönetici paneli <span class="sz-top-avatar"><i class="bi bi-person"></i></span></div></header>
+        <main class="sz-main">@RenderBody()</main>
+        <footer class="sz-footer"><span>© @DateTime.Now.Year SözlükX</span><span>MVC 5 · EF6 · SQL Server</span></footer>
+    </div>
+    <script src="@Url.Content("~/Scripts/sozlukx-admin.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

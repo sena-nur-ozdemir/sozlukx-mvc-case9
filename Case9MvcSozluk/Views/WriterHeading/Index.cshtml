@@ -1,0 +1,22 @@
+﻿@model List<EntityLayer.Concrete.Heading>
+@{ViewBag.Title = "Başlıklarım"; Layout = "~/Views/Shared/_PublicLayout.cshtml";}
+<h1>Başlıklarım</h1><p>Oluşturduğun başlıkları buradan yönetebilirsin.</p>
+<div class="sx-actions"><a class="sx-primary" href="@Url.Action("Create")">+ Yeni başlık oluştur</a><a class="sx-secondary" href="@Url.Action("Index","Home")">Sözlüğe dön</a></div>
+@if (TempData["Success"] != null)
+{<div class="sx-success">@TempData["Success"]</div>}
+<div class="sx-box sx-responsive">
+    <table class="sx-table">
+        <thead><tr><th>Başlık</th><th>Kategori</th><th>Durum</th><th>İşlem</th></tr></thead>
+        <tbody>
+            @foreach (var h in Model)
+            {
+                <tr><td>@h.HeadingName</td><td>@(h.Category==null?"—":h.Category.CategoryName)</td><td><span class="sx-chip @(h.HeadingStatus?"ok":"")">@(h.HeadingStatus?"Aktif":"Pasif")</span></td><td><a class="sx-secondary" href="@Url.Action("Edit",new{id=h.HeadingID})">Düzenle</a> @using (Html.BeginForm("ChangeStatus", "WriterHeading", new { id = h.HeadingID, active = !h.HeadingStatus }, FormMethod.Post, new { @class = "sx-inline" }))
+                {@Html.AntiForgeryToken()<button type="submit" class="sx-secondary">@(h.HeadingStatus?"Pasife al":"Aktifleştir")</button>}</td></tr>
+}
+            @if (Model.Count == 0)
+            {
+                <tr><td colspan="4">Henüz başlık oluşturmadın.</td></tr>
+}
+        </tbody>
+    </table>
+</div>

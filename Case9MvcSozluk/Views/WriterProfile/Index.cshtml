@@ -1,0 +1,14 @@
+﻿@model Case9MvcSozluk.Models.WriterProfileViewModel
+@{ViewBag.Title = "Profilim"; Layout = "~/Views/Shared/_PublicLayout.cshtml";}
+<h1>Yazar profilim</h1><p>Profil bilgilerini güncelle ve kendini topluluğa tanıt.</p>
+@if (TempData["Success"] != null)
+{<div class="sx-success">@TempData["Success"]</div>}
+<div class="sx-box">
+    @using (Html.BeginForm())
+    {@Html.AntiForgeryToken() @Html.ValidationSummary(true, "", new { @class = "sx-error" })
+    @Html.LabelFor(x => x.Name) @Html.TextBoxFor(x => x.Name, new { @class = "sx-control" }) @Html.ValidationMessageFor(x => x.Name, "", new { @class = "sx-error" })
+    @Html.LabelFor(x => x.Surname) @Html.TextBoxFor(x => x.Surname, new { @class = "sx-control" }) @Html.ValidationMessageFor(x => x.Surname, "", new { @class = "sx-error" })
+    @Html.LabelFor(x => x.Title) @Html.TextBoxFor(x => x.Title, new { @class = "sx-control" }) @Html.ValidationMessageFor(x => x.Title, "", new { @class = "sx-error" })
+    @Html.LabelFor(x => x.About) @Html.TextAreaFor(x => x.About, new { @class = "sx-control" }) @Html.ValidationMessageFor(x => x.About, "", new { @class = "sx-error" })
+    <div class="sx-actions"><button type="submit" class="sx-primary">Profili kaydet</button></div>}
+</div>

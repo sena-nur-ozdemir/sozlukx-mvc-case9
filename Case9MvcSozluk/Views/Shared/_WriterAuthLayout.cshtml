@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>@ViewBag.Title | SözlükX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/sozlukx-auth.css")" rel="stylesheet" />
+</head>
+<body class="sa-body">
+    <div class="sa-shell">
+        <a class="sa-brand" href="@Url.Action("Index", "Home")">Sözlük<span>X</span></a>
+        <div class="sa-card">@RenderBody()</div>
+        <a class="sa-back" href="@Url.Action("Index", "Home")"><i class="bi bi-arrow-left"></i> Sözlüğe dön</a>
+    </div>
+</body>
+</html>

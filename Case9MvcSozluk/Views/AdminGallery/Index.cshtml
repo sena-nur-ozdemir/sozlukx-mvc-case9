@@ -1,0 +1,89 @@
+﻿@model List<EntityLayer.Concrete.ImageFile>
+@{
+    ViewBag.Title = "Galeri Yönetimi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = Model == null ? 0 : Model.Count;
+}
+
+<div class="sz-head">
+    <div>
+        <div class="sz-eyebrow">İÇERİK YÖNETİMİ / GALERİ</div>
+        <h1>Galeri</h1>
+        <p>	Galerideki görselleri ekleyin, görüntüleyin veya kaldırın.</p>
+    </div>
+    <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap">
+        <a href="@Url.Action("Index", "Gallery")" class="sz-btn" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-box-arrow-up-right"></i> Ön yüzde gör
+        </a>
+        <a href="@Url.Action("Create", "AdminGallery")" class="sz-btn sz-btn-primary">
+            <i class="bi bi-plus-lg"></i> Yeni görsel
+        </a>
+    </div>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="sz-alert">@TempData["Success"]</div>
+}
+
+<section class="sz-panel">
+    <div class="sz-panel-head">
+        <div>
+            <div class="sz-eyebrow">KAYITLI GÖRSELLER</div>
+            <h2>Galeri listesi</h2>
+        </div>
+        <span class="sz-metric-sub">@count kayıt</span>
+    </div>
+
+    @if (count == 0)
+    {
+        <div style="text-align:center;padding:40px 15px 46px;color:#827B74">
+            <div style="width:50px;height:50px;border-radius:14px;background:#FAE8DC;color:#D4622A;display:grid;place-items:center;margin:0 auto 15px;font-size:22px">
+                <i class="bi bi-images"></i>
+            </div>
+            <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#1A1714;margin:0 0 8px">Henüz görsel eklenmedi</h3>
+            <p style="margin:0 0 18px">Eklediğin görseller hem burada hem de halka açık galeride görünecek.</p>
+            <a href="@Url.Action("Create", "AdminGallery")" class="sz-btn sz-btn-primary">İlk görseli ekle</a>
+        </div>
+    }
+    else
+    {
+        <div class="sz-table-wrap">
+            <table class="sz-table">
+                <thead>
+                    <tr><th>GÖRSEL</th><th>BAĞLANTI</th><th>İŞLEM</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div style="display:flex;align-items:center;gap:13px;min-width:210px">
+                                    <img src="@item.ImagePath" alt="@item.ImageName" loading="lazy"
+                                         style="width:88px;height:62px;object-fit:cover;border-radius:9px;border:1px solid #E8E3DC" />
+                                    <span class="sz-table-title">@item.ImageName</span>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="@item.ImagePath" target="_blank" rel="noopener noreferrer"
+                                   style="color:#D4622A;font-weight:600;text-decoration:none">
+                                    <i class="bi bi-box-arrow-up-right"></i> Görseli aç
+                                </a>
+                            </td>
+                            <td>
+                                @using (Html.BeginForm("Delete", "AdminGallery", new { id = item.ImageID }, FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="sz-btn"
+                                            onclick="return confirm('Bu görsel kaydı silinsin mi?');">
+                                        <i class="bi bi-trash3"></i> Sil
+                                    </button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</section>

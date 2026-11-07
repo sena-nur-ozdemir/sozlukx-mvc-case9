@@ -1,0 +1,7 @@
+﻿@model EntityLayer.Concrete.Message
+@{ViewBag.Title = "Mesaj Detayı"; Layout = "~/Views/Shared/_PublicLayout.cshtml";}
+<h1>@Model.Subject</h1><div class="sx-actions"><a href="@Url.Action("Inbox")" class="sx-secondary">Gelen kutusu</a><a href="@Url.Action("Sent")" class="sx-secondary">Gönderilenler</a></div>
+<section class="sx-box">
+    <div class="sx-small"><strong>Gönderen:</strong> @Model.SenderMail<br /><strong>Alıcı:</strong> @Model.ReceiverMail<br /><strong>Tarih:</strong> @Model.MessageDate.ToString("dd.MM.yyyy HH:mm")</div>
+    <hr /><p style="white-space:pre-wrap;overflow-wrap:anywhere">@Model.MessageContent</p>
+</section>

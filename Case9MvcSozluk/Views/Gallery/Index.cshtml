@@ -1,0 +1,33 @@
+﻿@* HALKA AÇIK GALERİ: SADECE Views/Gallery/Index.cshtml *@
+@model List<EntityLayer.Concrete.ImageFile>
+@{
+    ViewBag.Title = "Galeri";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+<section class="sx-page-hero">
+    <span class="sx-page-eyebrow"><i class="bi bi-images" aria-hidden="true"></i> SÖZLÜKX / GALERİ</span>
+    <h1>Görsellerle keşfet<span>.</span></h1>
+    <p>Yazılım, teknoloji ve çalışma alanlarından ilham veren kareler.</p>
+</section>
+@if (Model == null || Model.Count == 0)
+{
+    <section class="sx-feature-card sx-empty-card">
+        <span class="sx-feature-icon"><i class="bi bi-image" aria-hidden="true"></i></span>
+        <h2>Henüz görsel eklenmedi</h2>
+        <p>Galeri içerikleri eklendiğinde burada görüntülenecek.</p>
+        <a class="sx-secondary" href="@Url.Action("Index", "Home")">Sözlüğe dön</a>
+    </section>
+}
+else
+{
+    <div class="sx-gallery-grid">
+        @foreach (var img in Model)
+        {
+            <figure class="sx-gallery-item">
+                <div class="sx-gallery-photo"><img src="@img.ImagePath" alt="@img.ImageName" loading="lazy" /></div>
+                <figcaption>@img.ImageName</figcaption>
+            </figure>
+        }
+    </div>
+}
+<div class="sx-page-end"><a href="@Url.Action("Index", "Home")"><i class="bi bi-arrow-left" aria-hidden="true"></i> Sözlüğe dön</a></div>

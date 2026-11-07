@@ -1,0 +1,11 @@
+﻿@model Case9MvcSozluk.Models.HeadingFormViewModel
+@{ViewBag.Title = "Başlık Ekle"; Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+<div class="sz-head"><div><h1>Yeni başlık</h1><p>Başlık için kategori ve aktif yazar seç.</p></div><a href="@Url.Action("Index")" class="sz-btn">Listeye dön</a></div>
+<section class="sz-panel sz-form-card">
+    @using (Html.BeginForm())
+    {@Html.AntiForgeryToken() @Html.ValidationSummary(true, "", new { @class = "sz-validation" })
+    <div class="sz-form-group">@Html.LabelFor(x => x.HeadingName) @Html.TextBoxFor(x => x.HeadingName, new { @class = "sz-input", maxlength = 150 }) @Html.ValidationMessageFor(x => x.HeadingName)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.CategoryID) @Html.DropDownListFor(x => x.CategoryID, (IEnumerable<SelectListItem>)ViewBag.Categories, "Kategori seçiniz", new { @class = "sz-input" }) @Html.ValidationMessageFor(x => x.CategoryID)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.WriterID) @Html.DropDownListFor(x => x.WriterID, (IEnumerable<SelectListItem>)ViewBag.Writers, "Yazar seçiniz", new { @class = "sz-input" }) @Html.ValidationMessageFor(x => x.WriterID)</div>
+    <div class="sz-form-actions"><button type="submit" class="sz-btn sz-btn-primary">Başlık ekle</button></div>}
+</section>

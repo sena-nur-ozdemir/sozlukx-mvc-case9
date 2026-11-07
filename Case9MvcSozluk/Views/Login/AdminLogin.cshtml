@@ -1,0 +1,44 @@
+﻿@model Case9MvcSozluk.Models.AdminLoginViewModel
+
+@{
+    ViewBag.Title = "Yönetici Girişi";
+    Layout = "~/Views/Shared/_WriterAuthLayout.cshtml";
+}
+
+<div class="sa-eyebrow">YÖNETİM PANELİ</div>
+
+<h1>Yönetici girişi.</h1>
+<p>Yalnızca yetkili yöneticiler erişebilir.</p>
+
+@using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "",
+        new { @class = "sa-errors" })
+
+    @Html.LabelFor(m => m.UserName)
+    @Html.TextBoxFor(m => m.UserName,
+        new { @class = "sa-input", autocomplete = "username" })
+    @Html.ValidationMessageFor(m => m.UserName,
+        "", new { @class = "sa-errors" })
+
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password,
+        new { @class = "sa-input", autocomplete = "current-password" })
+    @Html.ValidationMessageFor(m => m.Password,
+        "", new { @class = "sa-errors" })
+
+    <button type="submit" class="sa-submit">
+        Yönetici olarak giriş yap
+        <i class="bi bi-arrow-right"></i>
+    </button>
+}
+
+<div class="sa-bottom">
+    Yazar hesabın için
+    <a href="@Url.Action("Login", "WriterAccount")">
+        yazar girişi
+    </a>
+    sayfasını kullan.
+</div>

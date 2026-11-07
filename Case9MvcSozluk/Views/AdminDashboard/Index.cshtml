@@ -1,0 +1,37 @@
+﻿@model List<EntityLayer.Concrete.Category>
+@{ViewBag.Title = "Genel Bakış"; Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+<div class="sz-head"><div><div class="sz-eyebrow">YÖNETİM PANELİ / GENEL BAKIŞ</div><h1>Hoş geldin, @User.Identity.Name</h1><p>	Kategorileri, yazarları ve paylaşılan içerikleri tek ekrandan takip edin.</p></div><a class="sz-btn sz-btn-primary" href="@Url.Action("Create","AdminCategory")">+ Yeni kategori</a></div>
+<div class="sz-metrics">
+    <div class="sz-metric"><span class="sz-metric-icon peach"><i class="bi bi-grid"></i></span><span class="sz-metric-title">Kategori</span><strong>@ViewBag.TotalCategories</strong><span class="sz-metric-sub">Aktif: @ViewBag.ActiveCategories / Pasif: @ViewBag.InactiveCategories</span></div>
+    <div class="sz-metric"><span class="sz-metric-icon mint"><i class="bi bi-people"></i></span><span class="sz-metric-title">Yazar</span><strong>@ViewBag.WriterCount</strong><span class="sz-metric-sub"><a href="@Url.Action("Index","AdminWriter")">Yazar yönetimine git</a></span></div>
+    <div class="sz-metric"><span class="sz-metric-icon stone"><i class="bi bi-chat-dots"></i></span><span class="sz-metric-title">Başlık / Entry</span><strong>@ViewBag.HeadingCount / @ViewBag.EntryCount</strong><span class="sz-metric-sub"><a href="@Url.Action("Index","AdminHeading")">Başlıkları görüntüle</a></span></div>
+</div>
+<div class="sz-dashboard-grid">
+    <section class="sz-panel">
+        <div class="sz-panel-head"><div><div class="sz-eyebrow">KATEGORİLER</div><h2>Son eklenen kategoriler</h2></div><a class="sz-text-link" href="@Url.Action("Index","AdminCategory")">Tümünü gör</a></div>
+        <div class="sz-table-wrap">
+            <table class="sz-table">
+                <thead><tr><th>Kategori</th><th>Durum</th></tr></thead>
+                <tbody>
+                    @foreach (var c in Model)
+                    {
+                        <tr><td><strong>@c.CategoryName</strong><div class="sz-table-desc">@c.CategoryDescription</div></td><td>@if (c.CategoryStatus)
+                        {<span class="sz-pill active">Aktif</span>}
+                        else
+                        {<span class="sz-pill inactive">Pasif</span>}</td></tr>
+}
+                    @if (Model.Count == 0)
+                    {
+                        <tr><td colspan="2" class="sz-empty">Henüz kategori yok.</td></tr>
+}
+                </tbody>
+            </table>
+        </div>
+    </section><aside class="sz-panel sz-next-panel">
+        <div class="sz-eyebrow">YÖNETİM KISAYOLLARI</div><h2>SözlükX yönetimi</h2><p>Verileri tek merkezden yönetebilirsin.</p>
+        <div class="sz-next-item"><i class="bi bi-collection"></i><div><strong><a href="@Url.Action("Index","AdminCategory")">Kategoriler</a></strong><span>Liste, ekleme ve durum işlemleri</span></div></div>
+        <div class="sz-next-item"><i class="bi bi-people"></i><div><strong><a href="@Url.Action("Index","AdminWriter")">Yazarlar</a></strong><span>Yazar bilgileri ve hesap durumu</span></div></div>
+        <div class="sz-next-item"><i class="bi bi-journal-text"></i><div><strong><a href="@Url.Action("Index","AdminHeading")">Başlıklar</a></strong><span>Başlık yönetimi</span></div></div>
+        <div class="sz-next-item"><i class="bi bi-chat-square-text"></i><div><strong><a href="@Url.Action("Index","AdminContent")">Entry'ler</a></strong><span>Entry görüntüleme ve silme</span></div></div>
+    </aside>
+</div>

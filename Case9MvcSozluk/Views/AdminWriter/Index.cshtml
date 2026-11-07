@@ -1,0 +1,29 @@
+﻿@model List<EntityLayer.Concrete.Writer>
+@{
+    ViewBag.Title = "Yazarlar"; Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="sz-head"><div><div class="sz-eyebrow">YAZAR YÖNETİMİ</div><h1>Yazarlar</h1><p>	Yazar hesaplarını, profil bilgilerini ve hesap durumlarını yönetin.</p></div></div>
+@if (TempData["Success"] != null)
+{<div class="sz-alert">@TempData["Success"]</div>}
+<section class="sz-panel">
+    <div class="sz-panel-head"><h2>Kayıtlı yazarlar</h2><span class="sz-toolbar-note">@Model.Count kayıt</span></div>
+    <div class="sz-table-wrap">
+        <table class="sz-table">
+            <thead><tr><th>Kullanıcı</th><th>E-posta</th><th>Durum</th><th>İşlem</th></tr></thead>
+            <tbody>
+                @foreach (var w in Model)
+                {
+                    <tr><td><strong>@w.WriterUserName</strong><div class="sz-table-desc">@w.WriterName @w.WriterSurname</div></td><td>@w.WriterMail</td><td>@if (w.WriterStatus)
+                    {<span class="sz-pill active">Aktif</span>}
+                    else
+                    {<span class="sz-pill inactive">Pasif</span>}</td><td><a class="sz-btn" href="@Url.Action("Edit",new{id=w.WriterID})">Düzenle</a> @using (Html.BeginForm("ChangeStatus", "AdminWriter", new { id = w.WriterID, active = !w.WriterStatus }, FormMethod.Post, new { style = "display:inline" }))
+                    {@Html.AntiForgeryToken()<button type="submit" class="sz-btn">@(w.WriterStatus?"Pasife al":"Aktifleştir")</button>}</td></tr>
+}
+                @if (Model.Count == 0)
+                {
+                    <tr><td colspan="4" class="sz-empty">Henüz yazar kaydı yok.</td></tr>
+}
+            </tbody>
+        </table>
+    </div>
+</section>

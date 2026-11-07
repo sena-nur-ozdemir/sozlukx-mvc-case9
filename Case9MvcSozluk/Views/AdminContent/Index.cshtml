@@ -1,0 +1,30 @@
+﻿@model List<EntityLayer.Concrete.Content>
+@{ViewBag.Title = "Entry Yönetimi"; Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+<div class="sz-head"><div><div class="sz-eyebrow">SÖZLÜK YÖNETİMİ</div><h1>Entry'ler</h1><p>Paylaşılan entry'leri, ilgili başlıkları ve yazarlarını inceleyin.</p></div></div>
+@if (TempData["Success"] != null)
+{<div class="sz-alert">@TempData["Success"]</div>}
+<section class="sz-panel">
+    <div class="sz-panel-head"><h2>Entry listesi</h2><span class="sz-toolbar-note">@Model.Count kayıt</span></div><div class="sz-table-wrap">
+        <table class="sz-table">
+            <thead><tr><th>Entry</th><th>Başlık</th><th>Yazar</th><th>İşlem</th></tr></thead>
+            <tbody>
+                @foreach (var e in Model)
+                {
+                    <tr>
+                        <td><div class="sz-table-title">@e.ContentValue</div><div class="sz-table-desc">@e.ContentDate.ToString("dd.MM.yyyy HH:mm")</div></td>
+                        <td>@(e.Heading==null?"—":e.Heading.HeadingName)</td>
+                        <td>@(e.Writer==null?"—":e.Writer.WriterUserName)</td>
+                        <td>
+                            @using (Html.BeginForm("Delete", "AdminContent", new { id = e.ContentID }, FormMethod.Post))
+                            {@Html.AntiForgeryToken()<button type="submit" class="sz-btn" onclick="return confirm('Bu entry kalıcı olarak silinsin mi?');">Sil</button>}
+                    </td>
+                </tr>
+            }
+                @if (Model.Count == 0)
+                {
+                    <tr><td colspan="4" class="sz-empty">Henüz entry kaydı yok.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

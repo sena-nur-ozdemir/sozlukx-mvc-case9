@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Raporlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    // Değerler AdminReportsController tarafından gerçek veritabanından gönderilir.
+    int categories = Convert.ToInt32(ViewBag.TotalCategories ?? 0);
+    int activeCategories = Convert.ToInt32(ViewBag.ActiveCategories ?? 0);
+    int writers = Convert.ToInt32(ViewBag.Writers ?? 0);
+    int activeWriters = Convert.ToInt32(ViewBag.ActiveWriters ?? 0);
+    int headings = Convert.ToInt32(ViewBag.Headings ?? 0);
+    int activeHeadings = Convert.ToInt32(ViewBag.ActiveHeadings ?? 0);
+    int entries = Convert.ToInt32(ViewBag.Entries ?? 0);
+    int contacts = Convert.ToInt32(ViewBag.Contacts ?? 0);
+
+    // Boş veritabanında sıfıra bölme olmaması için üst sınır en az 1.
+    int maxCount = Math.Max(1, Math.Max(categories, Math.Max(writers, Math.Max(headings, Math.Max(entries, contacts)))));
+    int categoryBar = (int)Math.Round(categories * 100.0 / maxCount);
+    int writerBar = (int)Math.Round(writers * 100.0 / maxCount);
+    int headingBar = (int)Math.Round(headings * 100.0 / maxCount);
+    int entryBar = (int)Math.Round(entries * 100.0 / maxCount);
+    int contactBar = (int)Math.Round(contacts * 100.0 / maxCount);
+
+    int categoryActiveRate = categories == 0 ? 0 : (int)Math.Round(activeCategories * 100.0 / categories);
+    int writerActiveRate = writers == 0 ? 0 : (int)Math.Round(activeWriters * 100.0 / writers);
+    int headingActiveRate = headings == 0 ? 0 : (int)Math.Round(activeHeadings * 100.0 / headings);
+}
+
+<div class="sz-head">
+    <div>
+        <div class="sz-eyebrow">YÖNETİM PANELİ / RAPORLAR</div>
+        <h1>İstatistikler</h1>
+        <p>	SözlükX'in içerik ve kullanıcı istatistiklerini inceleyin.</p>
+    </div>
+    <span class="sz-report-live"><span class="sz-report-dot"></span>Güncel kayıtlar</span>
+</div>
+
+<div class="sz-report-kpis">
+    <div class="sz-report-kpi">
+        <div class="sz-report-icon peach"><i class="bi bi-collection"></i></div>
+        <span class="sz-report-label">Kategori</span>
+        <strong>@categories</strong>
+        <span class="sz-report-hint">@activeCategories aktif kategori</span>
+    </div>
+    <div class="sz-report-kpi">
+        <div class="sz-report-icon green"><i class="bi bi-people"></i></div>
+        <span class="sz-report-label">Yazar</span>
+        <strong>@writers</strong>
+        <span class="sz-report-hint">@activeWriters aktif hesap</span>
+    </div>
+    <div class="sz-report-kpi">
+        <div class="sz-report-icon purple"><i class="bi bi-journal-text"></i></div>
+        <span class="sz-report-label">Başlık</span>
+        <strong>@headings</strong>
+        <span class="sz-report-hint">@activeHeadings aktif başlık</span>
+    </div>
+    <div class="sz-report-kpi">
+        <div class="sz-report-icon sky"><i class="bi bi-chat-square-text"></i></div>
+        <span class="sz-report-label">Entry</span>
+        <strong>@entries</strong>
+        <span class="sz-report-hint">Kaydedilmiş içerikler</span>
+    </div>
+    <div class="sz-report-kpi">
+        <div class="sz-report-icon stone"><i class="bi bi-envelope"></i></div>
+        <span class="sz-report-label">İletişim</span>
+        <strong>@contacts</strong>
+        <span class="sz-report-hint">Gelen form kayıtları</span>
+    </div>
+</div>
+
+<div class="sz-report-grid">
+    <section class="sz-report-panel">
+        <div class="sz-report-section-head">
+            <div>
+                <span class="sz-report-eyebrow">KAYIT DAĞILIMI</span>
+                <h2>İçerik özeti</h2>
+                <p>Kayıt sayılarının görsel karşılaştırması</p>
+            </div>
+            <span class="sz-report-chip">Toplam kayıtlar</span>
+        </div>
+
+        <div class="sz-report-bar-item">
+            <div class="sz-report-bar-label"><span>Kategoriler</span><strong>@categories</strong></div>
+            <div class="sz-report-track"><div class="sz-report-fill orange" style="width:@(categoryBar)%"></div></div>
+        </div>
+        <div class="sz-report-bar-item">
+            <div class="sz-report-bar-label"><span>Yazarlar</span><strong>@writers</strong></div>
+            <div class="sz-report-track"><div class="sz-report-fill green" style="width:@(writerBar)%"></div></div>
+        </div>
+        <div class="sz-report-bar-item">
+            <div class="sz-report-bar-label"><span>Başlıklar</span><strong>@headings</strong></div>
+            <div class="sz-report-track"><div class="sz-report-fill purple" style="width:@(headingBar)%"></div></div>
+        </div>
+        <div class="sz-report-bar-item">
+            <div class="sz-report-bar-label"><span>Entry'ler</span><strong>@entries</strong></div>
+            <div class="sz-report-track"><div class="sz-report-fill sky" style="width:@(entryBar)%"></div></div>
+        </div>
+        <div class="sz-report-bar-item">
+            <div class="sz-report-bar-label"><span>İletişim mesajları</span><strong>@contacts</strong></div>
+            <div class="sz-report-track"><div class="sz-report-fill stone" style="width:@(contactBar)%"></div></div>
+        </div>
+        <p class="sz-report-footnote">En yüksek kayıt sayısı, grafik ölçeğinde %100 kabul edilmiştir.</p>
+    </section>
+
+    <section class="sz-report-panel">
+        <div class="sz-report-section-head">
+            <div>
+                <span class="sz-report-eyebrow">DURUM ANALİZİ</span>
+                <h2>Aktif kayıtlar</h2>
+                <p>Kategori, yazar ve başlık durumları</p>
+            </div>
+        </div>
+
+        <div class="sz-report-status">
+            <div class="sz-report-status-title"><span>Kategoriler</span><strong>%@categoryActiveRate</strong></div>
+            <div class="sz-report-track large"><div class="sz-report-fill green" style="width:@(categoryActiveRate)%"></div></div>
+            <div class="sz-report-status-sub">@activeCategories aktif · @(categories - activeCategories) pasif</div>
+        </div>
+        <div class="sz-report-status">
+            <div class="sz-report-status-title"><span>Yazarlar</span><strong>%@writerActiveRate</strong></div>
+            <div class="sz-report-track large"><div class="sz-report-fill green" style="width:@(writerActiveRate)%"></div></div>
+            <div class="sz-report-status-sub">@activeWriters aktif · @(writers - activeWriters) pasif</div>
+        </div>
+        <div class="sz-report-status">
+            <div class="sz-report-status-title"><span>Başlıklar</span><strong>%@headingActiveRate</strong></div>
+            <div class="sz-report-track large"><div class="sz-report-fill green" style="width:@(headingActiveRate)%"></div></div>
+            <div class="sz-report-status-sub">@activeHeadings aktif · @(headings - activeHeadings) pasif</div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,10 @@
+﻿@model Case9MvcSozluk.Models.HeadingFormViewModel
+@{ViewBag.Title = "Başlık Düzenle"; Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+<div class="sz-head"><div><h1>Başlık düzenle</h1><p>#@Model.HeadingID başlığını güncelle. Başlığı oluşturan yazar değişmez.</p></div><a href="@Url.Action("Index")" class="sz-btn">Listeye dön</a></div>
+<section class="sz-panel sz-form-card">
+    @using (Html.BeginForm())
+    {@Html.AntiForgeryToken() @Html.HiddenFor(x => x.HeadingID) @Html.HiddenFor(x => x.WriterID) @Html.ValidationSummary(true, "", new { @class = "sz-validation" })
+    <div class="sz-form-group">@Html.LabelFor(x => x.HeadingName) @Html.TextBoxFor(x => x.HeadingName, new { @class = "sz-input", maxlength = 150 }) @Html.ValidationMessageFor(x => x.HeadingName)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.CategoryID) @Html.DropDownListFor(x => x.CategoryID, (IEnumerable<SelectListItem>)ViewBag.Categories, "Kategori seçiniz", new { @class = "sz-input" }) @Html.ValidationMessageFor(x => x.CategoryID)</div>
+    <div class="sz-form-actions"><button type="submit" class="sz-btn sz-btn-primary">Kaydet</button></div>}
+</section>

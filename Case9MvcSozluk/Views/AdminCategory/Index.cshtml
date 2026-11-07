@@ -1,0 +1,64 @@
+﻿@model List<EntityLayer.Concrete.Category>
+@using System.Linq
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var active = Model.Count(c => c.CategoryStatus);
+}
+<div class="sz-head">
+    <div><div class="sz-eyebrow">İÇERİK YÖNETİMİ / KATEGORİLER</div><h1>Kategoriler</h1><p>	Sözlük kategorilerini düzenleyin ve yayın durumlarını yönetin.</p></div>
+    <a class="sz-btn sz-btn-primary" href="@Url.Action("Create", "AdminCategory")"><i class="bi bi-plus-lg"></i> Yeni kategori</a>
+</div>
+@if (TempData["Success"] != null)
+{<div class="sz-alert" role="status"><i class="bi bi-check-circle"></i> @TempData["Success"]</div>}
+<div class="sz-metrics">
+    <div class="sz-metric"><span class="sz-metric-icon peach"><i class="bi bi-grid"></i></span><span class="sz-metric-title">Toplam</span><strong>@Model.Count</strong><span class="sz-metric-sub">Kayıtlı kategori</span></div>
+    <div class="sz-metric"><span class="sz-metric-icon mint"><i class="bi bi-check-circle"></i></span><span class="sz-metric-title">Aktif</span><strong>@active</strong><span class="sz-metric-sub">Başlıklarda kullanılabilir</span></div>
+    <div class="sz-metric"><span class="sz-metric-icon stone"><i class="bi bi-pause-circle"></i></span><span class="sz-metric-title">Pasif</span><strong>@(Model.Count - active)</strong><span class="sz-metric-sub">Kaydı saklananlar</span></div>
+</div>
+<section class="sz-panel">
+    <div class="sz-panel-head"><div><div class="sz-eyebrow">KATEGORİ LİSTESİ</div><h2>Tüm kategoriler</h2></div><div class="sz-toolbar-note">@Model.Count kayıt</div></div>
+    <div class="sz-table-wrap">
+        <table class="sz-table">
+            <thead><tr><th>ID</th><th>Kategori</th><th>Durum</th><th>İşlemler</th></tr></thead>
+            <tbody>
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>#@category.CategoryID</td>
+                        <td><div class="sz-table-title">@category.CategoryName</div><div class="sz-table-desc">@category.CategoryDescription</div></td>
+                        <td>@if (category.CategoryStatus)
+                        {<span class="sz-pill active">Aktif</span>}
+                        else
+                        {<span class="sz-pill inactive">Pasif</span>}</td>
+                        <td>
+                            <div class="sz-table-actions">
+                                <a class="sz-btn sz-btn-sm" href="@Url.Action("Edit", "AdminCategory", new { id = category.CategoryID })"><i class="bi bi-pencil"></i> Düzenle</a>
+                                @if (category.CategoryStatus)
+                                {
+                                    using (Html.BeginForm("Deactivate", "AdminCategory", new { id = category.CategoryID }, FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="sz-btn sz-btn-sm sz-btn-danger" onclick="return confirm('Bu kategoriyi pasife almak istiyor musun?');"><i class="bi bi-pause-circle"></i> Pasife al</button>
+                                    }
+                                }
+                                else
+                                {
+                                    using (Html.BeginForm("Activate", "AdminCategory", new { id = category.CategoryID }, FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="sz-btn sz-btn-sm"><i class="bi bi-check-circle"></i> Aktifleştir</button>
+                                    }
+                                }
+                            </div>
+                        </td>
+                    </tr>
+}
+                @if (Model.Count == 0)
+                {
+                    <tr><td colspan="4" class="sz-empty">Henüz kategori yok. “Yeni kategori” ile ilk kaydı oluşturabilirsin.</td></tr>
+}
+            </tbody>
+        </table>
+    </div>
+</section>

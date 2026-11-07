@@ -1,0 +1,14 @@
+﻿@model Case9MvcSozluk.Models.WriterProfileViewModel
+@{ViewBag.Title = "Yazar Düzenle"; Layout = "~/Views/Shared/_AdminLayout.cshtml";}
+<div class="sz-head"><div><h1>Yazar düzenle</h1><p>Yazar bilgilerini güncelle.</p></div><a href="@Url.Action("Index")" class="sz-btn">Listeye dön</a></div>
+<section class="sz-panel sz-form-card">
+    @using (Html.BeginForm())
+    {@Html.AntiForgeryToken() @Html.HiddenFor(x => x.WriterID)
+    @Html.ValidationSummary(true, "", new { @class = "sz-validation" })
+    <div class="sz-form-group">@Html.LabelFor(x => x.Name) @Html.TextBoxFor(x => x.Name, new { @class = "sz-input" }) @Html.ValidationMessageFor(x => x.Name)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.Surname) @Html.TextBoxFor(x => x.Surname, new { @class = "sz-input" }) @Html.ValidationMessageFor(x => x.Surname)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.Title) @Html.TextBoxFor(x => x.Title, new { @class = "sz-input" }) @Html.ValidationMessageFor(x => x.Title)</div>
+    <div class="sz-form-group">@Html.LabelFor(x => x.About) @Html.TextAreaFor(x => x.About, new { @class = "sz-input", rows = 5 }) @Html.ValidationMessageFor(x => x.About)</div>
+    <div class="sz-form-actions"><button type="submit" class="sz-btn sz-btn-primary">Kaydet</button></div>
+}
+</section>

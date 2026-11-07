@@ -1,0 +1,27 @@
+﻿@model Case9MvcSozluk.Models.WriterLoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_WriterAuthLayout.cshtml";
+}
+
+<div class="sa-eyebrow">YAZAR HESABI</div>
+<h1>Tekrar hoş geldin.</h1><p>SözlükX hesabınla oturum aç.</p>
+@using (Html.BeginForm("Login", "WriterAccount", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "sa-errors" })
+    @Html.LabelFor(m => m.UserName)
+
+    @Html.TextBoxFor(m => m.UserName,
+        new { @class = "sa-input", autocomplete = "username" })
+
+    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "sa-errors" })
+    @Html.LabelFor(m => m.Password)
+
+    @Html.PasswordFor(m => m.Password,
+        new { @class = "sa-input", autocomplete = "current-password" })
+
+    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "sa-errors" })
+    <button class="sa-submit" type="submit">Giriş Yap <i class="bi bi-arrow-right"></i></button>
+}
+<div class="sa-bottom">Hesabın yok mu? <a href="@Url.Action("Register", "WriterAccount")">Kayıt Ol</a></div>

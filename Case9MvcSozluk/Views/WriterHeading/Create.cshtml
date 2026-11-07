@@ -1,0 +1,10 @@
+﻿@model Case9MvcSozluk.Models.HeadingFormViewModel
+@{ViewBag.Title = "Yeni Başlık"; Layout = "~/Views/Shared/_PublicLayout.cshtml";}
+<h1>Yeni başlık oluştur</h1><p>Yazmak istediğin konuyu seç ve ilk başlığı aç.</p>
+<div class="sx-box">
+    @using (Html.BeginForm())
+    {@Html.AntiForgeryToken() @Html.ValidationSummary(true, "", new { @class = "sx-error" })
+    @Html.LabelFor(x => x.HeadingName) @Html.TextBoxFor(x => x.HeadingName, new { @class = "sx-control", maxlength = 150, placeholder = "Başlık adı" }) @Html.ValidationMessageFor(x => x.HeadingName, "", new { @class = "sx-error" })
+    @Html.LabelFor(x => x.CategoryID) @Html.DropDownListFor(x => x.CategoryID, (IEnumerable<SelectListItem>)ViewBag.Categories, "Kategori seçiniz", new { @class = "sx-control" }) @Html.ValidationMessageFor(x => x.CategoryID, "", new { @class = "sx-error" })
+    <div class="sx-actions"><button class="sx-primary" type="submit">Başlık oluştur</button><a class="sx-secondary" href="@Url.Action("Index")">Vazgeç</a></div>}
+</div>
