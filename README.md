@@ -44,23 +44,28 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <br><br>
   <b>Sözlük Ana Sayfası — Başlıklar ve Entry’ler</b>
   <br>
-  <img width="1200" alt="Sözlük Ana Sayfası — Başlıklar ve Entry’ler" src="screenshots/01_OnYuz/03_Sozluk_Ana_Sayfa.png" />
+  <img width="1912" height="862" alt="Screenshot 2026-11-07 153012" src="https://github.com/user-attachments/assets/66d4cac7-81f0-490e-91f5-e830adc6a9ca" />
+  <img width="1917" height="857" alt="Screenshot 2026-11-07 153328" src="https://github.com/user-attachments/assets/a42e2d69-8e68-4247-9c5f-8d056e1e8c21" />
+  <img width="1917" height="860" alt="Screenshot 2026-11-07 153458" src="https://github.com/user-attachments/assets/a4e1fefc-e150-444f-ad7a-5e103331b758" />
+
+<img width="1917" height="857" alt="Screenshot 2026-11-07 153101" src="https://github.com/user-attachments/assets/fd60cefa-1877-4d05-bf3e-687099ff21f6" />
   <br><br>
   <b>Galeri</b>
   <br>
-  <img width="1200" alt="Galeri" src="screenshots/01_OnYuz/05_Galeri.png" />
+<img width="1917" height="857" alt="Screenshot 2026-11-07 153328" src="https://github.com/user-attachments/assets/1bea381c-1c52-4706-ace0-1eafd9912317" />
   <br><br>
   <b>İletişim Formu</b>
-  <br>
-  <img width="1200" alt="İletişim Formu" src="screenshots/01_OnYuz/04_Iletisim.png" />
+  <br><img width="1917" height="862" alt="Screenshot 2026-11-07 152740" src="https://github.com/user-attachments/assets/ca77e897-4731-4d7d-b447-44d4b4389c29" />
+
+  <img width="1917" height="866" alt="Screenshot 2026-11-07 153241" src="https://github.com/user-attachments/assets/f8d0220e-729f-46be-809b-e090919973e2" />
   <br><br>
   <b>Yazar Girişi</b>
   <br>
-  <img width="1200" alt="Yazar Girişi" src="screenshots/01_OnYuz/02_Yazar_Giris.png" />
+  <img width="1917" height="862" alt="Screenshot 2026-11-07 152740" src="https://github.com/user-attachments/assets/7cf5286d-891a-4d1c-b2ab-7671c059637d" />
   <br><br>
   <b>Yazar Kayıt Formu</b>
   <br>
-  <img width="1200" alt="Yazar Kayıt Formu" src="screenshots/01_OnYuz/01_Yazar_Kayit.png" />
+  <img width="1897" height="862" alt="Screenshot 2026-11-07 152712" src="https://github.com/user-attachments/assets/d8baa0b8-d34d-4232-a6d3-11c253fd16ba" />
   <br><br>
 </details>
 
