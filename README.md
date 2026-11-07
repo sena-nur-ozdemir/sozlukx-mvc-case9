@@ -120,7 +120,6 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <img width="1901" height="866" alt="Screenshot 2026-11-07 154431" src="https://github.com/user-attachments/assets/144e5c9a-1dc3-48ec-88a6-b5cfcdf52b68" />
   <br><br>
 
-  <br><br>
 </details>
 
 ---
