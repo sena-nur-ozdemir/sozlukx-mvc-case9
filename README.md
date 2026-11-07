@@ -45,124 +45,81 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <b>Sözlük Ana Sayfası — Başlıklar ve Entry’ler</b>
   <br>
   <img width="1912" height="862" alt="Screenshot 2026-11-07 153012" src="https://github.com/user-attachments/assets/66d4cac7-81f0-490e-91f5-e830adc6a9ca" />
-
+  <br>
   <img width="1917" height="857" alt="Screenshot 2026-11-07 153101" src="https://github.com/user-attachments/assets/fd60cefa-1877-4d05-bf3e-687099ff21f6" />
-  
+  <br>
   <img width="1917" height="860" alt="Screenshot 2026-11-07 153458" src="https://github.com/user-attachments/assets/a4e1fefc-e150-444f-ad7a-5e103331b758" />
-
-<img width="1917" height="847" alt="Screenshot 2026-11-07 153643" src="https://github.com/user-attachments/assets/6851ecb7-09d8-48a5-bf19-965b73990307" />
-
-<img width="1917" height="855" alt="Screenshot 2026-11-07 153212" src="https://github.com/user-attachments/assets/3615b5bc-de02-4bb0-b1d5-d7cece9c3f85" />
-
-<img width="1917" height="812" alt="Screenshot 2026-11-07 153756" src="https://github.com/user-attachments/assets/bd20bc28-6571-48be-b85c-7065864a49ce" />
-
-  <br><br>
-  <b>Hakkımızda </b>
+  <br>
+  <img width="1917" height="847" alt="Screenshot 2026-11-07 153643" src="https://github.com/user-attachments/assets/6851ecb7-09d8-48a5-bf19-965b73990307" />
+  <br>
+  <img width="1917" height="855" alt="Screenshot 2026-11-07 153212" src="https://github.com/user-attachments/assets/3615b5bc-de02-4bb0-b1d5-d7cece9c3f85" />
+  <br>
+  <img width="1917" height="812" alt="Screenshot 2026-11-07 153756" src="https://github.com/user-attachments/assets/bd20bc28-6571-48be-b85c-7065864a49ce" />
   <br>
   <img width="1917" height="865" alt="Ekran görüntüsü 2023-12-14 223013" src="https://github.com/user-attachments/assets/05c5fb80-c841-4100-a00c-5ed03852f549" />
-
-  <br><br>
-  
-  <b>İletişim Formu</b>
   <br>
   <img width="1917" height="866" alt="Screenshot 2026-11-07 153241" src="https://github.com/user-attachments/assets/f8d0220e-729f-46be-809b-e090919973e2" />
-  
-  <b>Galeri</b>
   <br>
 <img width="1917" height="857" alt="Screenshot 2026-11-07 153328" src="https://github.com/user-attachments/assets/1bea381c-1c52-4706-ace0-1eafd9912317" />
-  <br><br>
-
-  <b>Yazar Girişi</b>
   <br>
   <img width="1917" height="862" alt="Screenshot 2026-11-07 152740" src="https://github.com/user-attachments/assets/7cf5286d-891a-4d1c-b2ab-7671c059637d" />
-  <br><br>
-  <b>Yazar Kayıt Formu</b>
   <br>
   <img width="1897" height="862" alt="Screenshot 2026-11-07 152712" src="https://github.com/user-attachments/assets/d8baa0b8-d34d-4232-a6d3-11c253fd16ba" />
-  <br><br>
+  <br>
 </details>
 
-
 <details>
-  <summary><b>✍️ 2. Yazar İşlemleri ve Mesajlaşma</b></summary>
-  <br>
-  <i>Yazarların kendi başlıklarını ve entry’lerini yönetebildiği, gelen/gönderilen mesajları görüntüleyebildiği ekranlar.</i>
-  <br><br>
-  <b>Başlıklarım — Yazarın İçerik Yönetimi</b>
-  <br>
-  <img width="1200" alt="Başlıklarım — Yazarın İçerik Yönetimi" src="screenshots/02_Yazar_Islemleri/03_Basliklarim.png" />
-  <br><br>
-  <b>Yeni Entry Oluşturma</b>
-  <br>
-  <img width="1200" alt="Yeni Entry Oluşturma" src="screenshots/02_Yazar_Islemleri/01_Yeni_Entry_Penceresi.png" />
-  <br><br>
-  <b>Gelen Kutusu</b>
-  <br>
-  <img width="1200" alt="Gelen Kutusu" src="screenshots/02_Yazar_Islemleri/04_Gelen_Kutusu.png" />
-  <br><br>
-  <b>Gönderilen Mesajlar</b>
-  <br>
-  <img width="1200" alt="Gönderilen Mesajlar" src="screenshots/02_Yazar_Islemleri/02_Gonderilen_Mesajlar.png" />
-  <br><br>
-  <b>Mesaj Detayı</b>
-  <br>
-  <img width="1200" alt="Mesaj Detayı" src="screenshots/02_Yazar_Islemleri/05_Mesaj_Detayi.png" />
-  <br><br>
-</details>
-
-
-<details>
-  <summary><b>🛠️ 3. Yönetim Paneli ve Raporlama</b></summary>
+  <summary><b>🛠️ 2. Yönetim Paneli ve Raporlama</b></summary>
   <br>
   <i>Yapay zekâ desteğiyle tasarlanan yönetim paneli: dashboard, raporlama, kategoriler, yazarlar, başlıklar, entry’ler ve diğer yönetim işlemleri.</i>
   <br><br>
   <b>Genel Bakış (Dashboard)</b>
   <br>
-  <img width="1200" alt="Genel Bakış (Dashboard)" src="screenshots/03_Yonetim_Paneli/02_Genel_Bakis.png" />
+  <img width="1891" height="867" alt="Screenshot 2026-11-07 154122" src="https://github.com/user-attachments/assets/5d84c76d-90ec-433b-9fc3-f98b6566b256" />
   <br><br>
   <b>İstatistikler ve Raporlar</b>
   <br>
-  <img width="1200" alt="İstatistikler ve Raporlar" src="screenshots/03_Yonetim_Paneli/10_Istatistikler.png" />
+  <img width="1901" height="866" alt="Screenshot 2026-11-07 154431" src="https://github.com/user-attachments/assets/144e5c9a-1dc3-48ec-88a6-b5cfcdf52b68" />
   <br><br>
   <b>Kategori Yönetimi</b>
   <br>
-  <img width="1200" alt="Kategori Yönetimi" src="screenshots/03_Yonetim_Paneli/03_Kategori_Yonetimi.png" />
+  <img width="1917" height="870" alt="Screenshot 2026-11-07 154200" src="https://github.com/user-attachments/assets/c02b1406-ebdd-492d-9954-ca1bc84e3b9a" />
+  <b>Yeni Kategori Oluşturma</b>
+  <br>
+  <img width="1917" height="861" alt="Screenshot 2026-11-07 154651" src="https://github.com/user-attachments/assets/66ca4b8e-c223-4de5-b79e-350e4725d16e" />
   <br><br>
   <b>Yazar Yönetimi</b>
   <br>
-  <img width="1200" alt="Yazar Yönetimi" src="screenshots/03_Yonetim_Paneli/04_Yazar_Yonetimi.png" />
+  <img width="1917" height="862" alt="Screenshot 2026-11-07 154221" src="https://github.com/user-attachments/assets/5c03ff9d-fa45-4870-9e23-e16562dd3c05" />
   <br><br>
   <b>Başlık Yönetimi</b>
   <br>
-  <img width="1200" alt="Başlık Yönetimi" src="screenshots/03_Yonetim_Paneli/05_Baslik_Yonetimi.png" />
+  <img width="1917" height="857" alt="Screenshot 2026-11-07 154254" src="https://github.com/user-attachments/assets/7f6c487b-2467-493d-842e-0c5292c1fe81" />
   <br><br>
   <b>Entry Yönetimi</b>
   <br>
-  <img width="1200" alt="Entry Yönetimi" src="screenshots/03_Yonetim_Paneli/06_Entry_Yonetimi.png" />
+  <img width="1917" height="862" alt="Screenshot 2026-11-07 154313" src="https://github.com/user-attachments/assets/2bf7fc26-078b-4b2d-9463-1d4d96b0f655" />
   <br><br>
   <b>Yeni Başlık Oluşturma</b>
   <br>
-  <img width="1200" alt="Yeni Başlık Oluşturma" src="screenshots/03_Yonetim_Paneli/11_Yeni_Baslik.png" />
-  <br><br>
-  <b>Yeni Kategori Oluşturma</b>
-  <br>
-  <img width="1200" alt="Yeni Kategori Oluşturma" src="screenshots/03_Yonetim_Paneli/12_Yeni_Kategori.png" />
+  <img width="1916" height="861" alt="Screenshot 2026-11-07 154639" src="https://github.com/user-attachments/assets/fad14394-7ed4-45d8-aa86-022567b571b1" />
   <br><br>
   <b>Hakkımızda Yönetimi</b>
   <br>
-  <img width="1200" alt="Hakkımızda Yönetimi" src="screenshots/03_Yonetim_Paneli/07_Hakkimizda_Yonetimi.png" />
+  <img width="1917" height="862" alt="Screenshot 2026-11-07 154325" src="https://github.com/user-attachments/assets/720742f8-52a0-4722-85ef-38bfe11216c1" />
   <br><br>
   <b>Galeri Yönetimi</b>
   <br>
-  <img width="1200" alt="Galeri Yönetimi" src="screenshots/03_Yonetim_Paneli/08_Galeri_Yonetimi.png" />
+  <img width="1917" height="860" alt="Screenshot 2026-11-07 154338" src="https://github.com/user-attachments/assets/80208ce0-84ff-4bb6-8051-4d2ebfb7bab6" />
   <br><br>
   <b>İletişim Mesajları Yönetimi</b>
   <br>
-  <img width="1200" alt="İletişim Mesajları Yönetimi" src="screenshots/03_Yonetim_Paneli/09_Iletisim_Yonetimi.png" />
+  <img width="1916" height="855" alt="Screenshot 2026-11-07 154354" src="https://github.com/user-attachments/assets/1e0f8aae-59ed-43b1-8a26-532a172bd912" />
   <br><br>
   <b>Yönetici Giriş Ekranı</b>
   <br>
-  <img width="1200" alt="Yönetici Giriş Ekranı" src="screenshots/03_Yonetim_Paneli/01_Yonetici_Giris.png" />
+  <img width="1917" height="867" alt="Screenshot 2026-11-07 153837" src="https://github.com/user-attachments/assets/059579e6-d50e-49aa-90c2-3c35ecae91c7" />
+
   <br><br>
 </details>
 
