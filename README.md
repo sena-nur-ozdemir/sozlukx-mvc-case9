@@ -45,18 +45,24 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <b>Sözlük Ana Sayfası — Başlıklar ve Entry’ler</b>
   <br>
   <img width="1912" height="862" alt="Screenshot 2026-11-07 153012" src="https://github.com/user-attachments/assets/66d4cac7-81f0-490e-91f5-e830adc6a9ca" />
-  <img width="1917" height="857" alt="Screenshot 2026-11-07 153328" src="https://github.com/user-attachments/assets/a42e2d69-8e68-4247-9c5f-8d056e1e8c21" />
+
+  <img width="1917" height="857" alt="Screenshot 2026-11-07 153101" src="https://github.com/user-attachments/assets/fd60cefa-1877-4d05-bf3e-687099ff21f6" />
+  
   <img width="1917" height="860" alt="Screenshot 2026-11-07 153458" src="https://github.com/user-attachments/assets/a4e1fefc-e150-444f-ad7a-5e103331b758" />
 
-<img width="1917" height="857" alt="Screenshot 2026-11-07 153101" src="https://github.com/user-attachments/assets/fd60cefa-1877-4d05-bf3e-687099ff21f6" />
+<img width="1917" height="847" alt="Screenshot 2026-11-07 153643" src="https://github.com/user-attachments/assets/6851ecb7-09d8-48a5-bf19-965b73990307" />
+
+<img width="1917" height="855" alt="Screenshot 2026-11-07 153212" src="https://github.com/user-attachments/assets/3615b5bc-de02-4bb0-b1d5-d7cece9c3f85" />
+
+<img width="1917" height="812" alt="Screenshot 2026-11-07 153756" src="https://github.com/user-attachments/assets/bd20bc28-6571-48be-b85c-7065864a49ce" />
+
   <br><br>
   <b>Galeri</b>
   <br>
 <img width="1917" height="857" alt="Screenshot 2026-11-07 153328" src="https://github.com/user-attachments/assets/1bea381c-1c52-4706-ace0-1eafd9912317" />
   <br><br>
   <b>İletişim Formu</b>
-  <br><img width="1917" height="862" alt="Screenshot 2026-11-07 152740" src="https://github.com/user-attachments/assets/ca77e897-4731-4d7d-b447-44d4b4389c29" />
-
+  <br>
   <img width="1917" height="866" alt="Screenshot 2026-11-07 153241" src="https://github.com/user-attachments/assets/f8d0220e-729f-46be-809b-e090919973e2" />
   <br><br>
   <b>Yazar Girişi</b>
