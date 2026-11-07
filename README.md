@@ -57,14 +57,21 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
 <img width="1917" height="812" alt="Screenshot 2026-11-07 153756" src="https://github.com/user-attachments/assets/bd20bc28-6571-48be-b85c-7065864a49ce" />
 
   <br><br>
+  <b>Hakkımızda </b>
+  <br>
+  <img width="1917" height="865" alt="Ekran görüntüsü 2023-12-14 223013" src="https://github.com/user-attachments/assets/05c5fb80-c841-4100-a00c-5ed03852f549" />
+
+  <br><br>
+  
+  <b>İletişim Formu</b>
+  <br>
+  <img width="1917" height="866" alt="Screenshot 2026-11-07 153241" src="https://github.com/user-attachments/assets/f8d0220e-729f-46be-809b-e090919973e2" />
+  
   <b>Galeri</b>
   <br>
 <img width="1917" height="857" alt="Screenshot 2026-11-07 153328" src="https://github.com/user-attachments/assets/1bea381c-1c52-4706-ace0-1eafd9912317" />
   <br><br>
-  <b>İletişim Formu</b>
-  <br>
-  <img width="1917" height="866" alt="Screenshot 2026-11-07 153241" src="https://github.com/user-attachments/assets/f8d0220e-729f-46be-809b-e090919973e2" />
-  <br><br>
+
   <b>Yazar Girişi</b>
   <br>
   <img width="1917" height="862" alt="Screenshot 2026-11-07 152740" src="https://github.com/user-attachments/assets/7cf5286d-891a-4d1c-b2ab-7671c059637d" />
