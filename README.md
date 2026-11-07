@@ -33,7 +33,20 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
 
 ## 📸 Ekran Görüntüleri
 
-*Ana sözlük ekranı, admin paneli, başlık/entry yönetimi ve rapor ekranlarından görüntüler eklenecek.*
+
+## 📸 Ekran Görüntüleri
+
+### Sözlük Ana Sayfası
+![SözlükX Ana Sayfa](screenshots/01_OnYuz/03_Sozluk_Ana_Sayfa.png)
+
+### Yönetim Paneli
+![Admin Genel Bakış](screenshots/03_Yonetim_Paneli/02_Genel_Bakis.png)
+
+### İstatistikler
+![SözlükX Raporlar](screenshots/03_Yonetim_Paneli/10_Istatistikler.png)
+
+[Tüm ekran görüntülerini görüntüle](screenshots/)
+
 
 ---
 
