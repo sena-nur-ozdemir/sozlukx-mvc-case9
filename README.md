@@ -43,6 +43,10 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <i>Başlık ve entry listeleri, galeri, iletişim ve yazar hesabı ekranları.</i>
   <br><br>
   <b>Sözlük Ana Sayfası — Başlıklar ve Entry’ler</b>
+  <img width="1917" height="862" alt="Screenshot 2026-11-07 152740" src="https://github.com/user-attachments/assets/7cf5286d-891a-4d1c-b2ab-7671c059637d" />
+  <br>
+  <img width="1897" height="862" alt="Screenshot 2026-11-07 152712" src="https://github.com/user-attachments/assets/d8baa0b8-d34d-4232-a6d3-11c253fd16ba" />
+  <br>
   <br>
   <img width="1912" height="862" alt="Screenshot 2026-11-07 153012" src="https://github.com/user-attachments/assets/66d4cac7-81f0-490e-91f5-e830adc6a9ca" />
   <br>
@@ -62,10 +66,6 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <br>
 <img width="1917" height="857" alt="Screenshot 2026-11-07 153328" src="https://github.com/user-attachments/assets/1bea381c-1c52-4706-ace0-1eafd9912317" />
   <br>
-  <img width="1917" height="862" alt="Screenshot 2026-11-07 152740" src="https://github.com/user-attachments/assets/7cf5286d-891a-4d1c-b2ab-7671c059637d" />
-  <br>
-  <img width="1897" height="862" alt="Screenshot 2026-11-07 152712" src="https://github.com/user-attachments/assets/d8baa0b8-d34d-4232-a6d3-11c253fd16ba" />
-  <br>
 </details>
 
 <details>
@@ -73,13 +73,12 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <br>
   <i>Yapay zekâ desteğiyle tasarlanan yönetim paneli: dashboard, raporlama, kategoriler, yazarlar, başlıklar, entry’ler ve diğer yönetim işlemleri.</i>
   <br><br>
+  <b>Yönetici Giriş Ekranı</b>
+  <br>
+  <img width="1917" height="867" alt="Screenshot 2026-11-07 153837" src="https://github.com/user-attachments/assets/059579e6-d50e-49aa-90c2-3c35ecae91c7" />
   <b>Genel Bakış (Dashboard)</b>
   <br>
   <img width="1891" height="867" alt="Screenshot 2026-11-07 154122" src="https://github.com/user-attachments/assets/5d84c76d-90ec-433b-9fc3-f98b6566b256" />
-  <br><br>
-  <b>İstatistikler ve Raporlar</b>
-  <br>
-  <img width="1901" height="866" alt="Screenshot 2026-11-07 154431" src="https://github.com/user-attachments/assets/144e5c9a-1dc3-48ec-88a6-b5cfcdf52b68" />
   <br><br>
   <b>Kategori Yönetimi</b>
   <br>
@@ -96,13 +95,13 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <br>
   <img width="1917" height="857" alt="Screenshot 2026-11-07 154254" src="https://github.com/user-attachments/assets/7f6c487b-2467-493d-842e-0c5292c1fe81" />
   <br><br>
-  <b>Entry Yönetimi</b>
-  <br>
-  <img width="1917" height="862" alt="Screenshot 2026-11-07 154313" src="https://github.com/user-attachments/assets/2bf7fc26-078b-4b2d-9463-1d4d96b0f655" />
-  <br><br>
   <b>Yeni Başlık Oluşturma</b>
   <br>
   <img width="1916" height="861" alt="Screenshot 2026-11-07 154639" src="https://github.com/user-attachments/assets/fad14394-7ed4-45d8-aa86-022567b571b1" />
+  <br><br>
+  <b>Entry Yönetimi</b>
+  <br>
+  <img width="1917" height="862" alt="Screenshot 2026-11-07 154313" src="https://github.com/user-attachments/assets/2bf7fc26-078b-4b2d-9463-1d4d96b0f655" />
   <br><br>
   <b>Hakkımızda Yönetimi</b>
   <br>
@@ -116,9 +115,10 @@ SözlükX'in ön yüzü hazırlanan HTML temasından **Razor View** yapısına u
   <br>
   <img width="1916" height="855" alt="Screenshot 2026-11-07 154354" src="https://github.com/user-attachments/assets/1e0f8aae-59ed-43b1-8a26-532a172bd912" />
   <br><br>
-  <b>Yönetici Giriş Ekranı</b>
+  <b>İstatistikler ve Raporlar</b>
   <br>
-  <img width="1917" height="867" alt="Screenshot 2026-11-07 153837" src="https://github.com/user-attachments/assets/059579e6-d50e-49aa-90c2-3c35ecae91c7" />
+  <img width="1901" height="866" alt="Screenshot 2026-11-07 154431" src="https://github.com/user-attachments/assets/144e5c9a-1dc3-48ec-88a6-b5cfcdf52b68" />
+  <br><br>
 
   <br><br>
 </details>
